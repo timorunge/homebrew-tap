@@ -18,6 +18,14 @@ Analyze and visualize X.509 certificate chains.
 brew install timorunge/tap/certree
 ```
 
+### currencyconverter
+
+Convert currencies using ECB exchange rates.
+
+```
+brew install timorunge/tap/currencyconverter
+```
+
 ### lore
 
 Search and serve your knowledge base from the terminal and over MCP.

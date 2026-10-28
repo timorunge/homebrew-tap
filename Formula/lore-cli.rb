@@ -1,25 +1,25 @@
 class LoreCli < Formula
   desc "CLI and terminal interface for lore: ingest, search, and serve knowledge bases"
   homepage "https://github.com/timorunge/lore"
-  version "0.1.0"
+  version "0.2.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/timorunge/lore/releases/download/v0.1.0/lore-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "2fca2e0b57052a4857e0fc3c458758e0683b443ce1a668a748ac78d81d9e444a"
+      url "https://github.com/timorunge/lore/releases/download/v0.2.0/lore-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "628fa2702348cf42a77670aebe59d9c87206e7987cae7925bbd7fb72dfb1c219"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/timorunge/lore/releases/download/v0.1.0/lore-cli-x86_64-apple-darwin.tar.gz"
-      sha256 "e6ab7798b2591601d8f21c07b051894ed638602dc1b9ebd5830f6c15e49e594a"
+      url "https://github.com/timorunge/lore/releases/download/v0.2.0/lore-cli-x86_64-apple-darwin.tar.gz"
+      sha256 "6258faa38b3f67daeaea46eb676e3b028c26ed1a1a89203c88401ffb2f658519"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/timorunge/lore/releases/download/v0.1.0/lore-cli-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "16feaad7220255ef6f2d298b8794d36b722326475a177a77d0045529cbfd5eb9"
+      url "https://github.com/timorunge/lore/releases/download/v0.2.0/lore-cli-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "470cd573f8ad91b2b1352f8f7f80ec9585201360172f52b64ebc7393832e0626"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/timorunge/lore/releases/download/v0.1.0/lore-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "3636134ce057d44839b5e806e6ceb5250ecb424f701bd66aacd16fa92de7bd30"
+      url "https://github.com/timorunge/lore/releases/download/v0.2.0/lore-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "adffb3661e3857c2b48fc2c76eca77c27b5173a54f30d7f13084346ec45ed2dd"
     end
   end
   license "MIT"
@@ -47,10 +47,18 @@ class LoreCli < Formula
   end
 
   def install
-    bin.install "lore" if OS.mac? && Hardware::CPU.arm?
-    bin.install "lore" if OS.mac? && Hardware::CPU.intel?
-    bin.install "lore" if OS.linux? && Hardware::CPU.arm?
-    bin.install "lore" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "lore"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "lore"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "lore"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "lore"
+    end
 
     install_binary_aliases!
 
